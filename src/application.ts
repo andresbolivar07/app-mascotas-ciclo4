@@ -11,6 +11,8 @@ import path from 'path';
 import {MySequence} from './sequence';
 import {EstrategiaAdministrador} from './strategies/admin.strategy';
 import {AuthenticationComponent, registerAuthenticationStrategy} from '@loopback/authentication';
+import {EstrategiaAsesor} from './strategies/asesor.strategy';
+import {EstrategiaCliente} from './strategies/cliente.strategy';
 
 export {ApplicationConfig};
 
@@ -44,6 +46,8 @@ export class App extends BootMixin(
     };
 
     registerAuthenticationStrategy(this, EstrategiaAdministrador);
+    registerAuthenticationStrategy(this, EstrategiaAsesor);
+    registerAuthenticationStrategy(this, EstrategiaCliente);
     //Aquí se agregan las lineas para cada estrategia.
     this.component(AuthenticationComponent);
   }
